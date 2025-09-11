@@ -1,0 +1,42 @@
+from abc import ABC, abstractmethod
+
+
+class Builder(ABC):
+
+    @abstractmethod
+    def add_email_field(self, email):
+        pass
+
+    @abstractmethod
+    def add_name_field(self, name):
+        pass
+
+    @abstractmethod
+    def add_subscriber_field(self, subscriber):
+        pass
+
+    @abstractmethod
+    def build(self):
+        pass
+
+
+class FormBuilder(Builder):
+
+    def __init__(self):
+        self.data = {}
+
+    def add_email_field(self, email):
+        self.data['email'] = email
+        return self
+
+    def add_name_field(self, name):
+        self.data['name'] = name
+        return self
+
+    def add_subscriber_field(self, subscriber):
+        self.data['subscriber'] = subscriber
+        return self
+
+    def build(self):
+        print(self.data.values())
+        return
