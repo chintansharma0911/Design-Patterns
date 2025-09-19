@@ -1,0 +1,4 @@
+{"level": "ERROR", "timestamp": 1758270163840, "message": "This is an error"}
+{"level": "FATAL", "timestamp": 1758270163843, "message": "System crash!"}
+{"level": "ERROR", "timestamp": 1758270212679, "message": "This is an error"}
+{"level": "FATAL", "timestamp": 1758270212680, "message": "System crash!"}
