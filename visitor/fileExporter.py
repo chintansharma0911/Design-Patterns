@@ -86,22 +86,23 @@ class Document:
 
 
 # # Usage
-# html_exporter = HTMLExporter()
-# pdf_exporter = PDFExporter()
-#
-# document = Document([
-#     Paragraph("This is a paragraph."),
-#     Heading(1, "Main Heading"),
-#     Image("image.jpg", "A beautiful image")
-# ])
-#
-# # Export to HTML
-# html_result = document.accept(html_exporter)
-# print("HTML Export:")
-# print('\n'.join(html_result))
-# print("\n")
-#
-# # Export to PDF
-# pdf_result = document.accept(pdf_exporter)
-# print("PDF Export:")
-# print('\n'.join(pdf_result))
+if __name__ == '__main__':
+    html_exporter = HTMLExporter()
+    pdf_exporter = PDFExporter()
+
+    document = Document([
+        Paragraph("This is a paragraph."),
+        Heading(1, "Main Heading"),
+        Image("image.jpg", "A beautiful image")
+    ])
+
+    # Export to HTML
+    html_result = document.accept(html_exporter)
+    print("HTML Export:")
+    print('\n'.join(html_result))
+    print("\n")
+
+    # Export to PDF
+    pdf_result = document.accept(pdf_exporter)
+    print("PDF Export:")
+    print('\n'.join(pdf_result))

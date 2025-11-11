@@ -40,3 +40,11 @@ class FormBuilder(Builder):
     def build(self):
         print(self.data.values())
         return
+
+
+
+if __name__ == "__main__":
+    form = FormBuilder()
+    form.add_email_field('dsdsdsd')
+    form.add_subscriber_field('adadada')
+    form.build()

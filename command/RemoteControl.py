@@ -99,3 +99,27 @@ class RemoteControl:
             self.history.append(command)
         else:
             print("Nothing to redo")
+
+
+if __name__ == "__main__":
+    # Receivers
+    light = LightBulb()
+    ac = AirConditioner()
+
+    # Commands
+    light_on = LightOnCommand(light)
+    light_off = LightOffCommand(light)
+    ac_on = ACOnCommand(ac)
+    ac_off = ACOffCommand(ac)
+
+    # Invoker
+    remote = RemoteControl()
+
+    # Use case
+    remote.execute_command(light_on)   # 💡 Light is ON
+    remote.execute_command(ac_on)      # ❄️ AC is ON
+    remote.undo()                      # ❄️ AC is OFF
+    remote.undo()                      # 💡 Light is OFF
+    remote.redo()                      # 💡 Light is ON
+    remote.execute_command(ac_off)     # ❄️ AC is OFF
+    remote.redo()                      # Nothing to redo

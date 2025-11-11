@@ -34,3 +34,6 @@ class Expression(ArithmeticExpression):
             return self.left.evaluate() / self.right.evaluate()
         else:
             return 0
+
+if __name__ == '__main__':
+    print(Expression(Number(7),Expression(Number(3),Number(4),'+'), '*').evaluate())

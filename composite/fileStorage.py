@@ -44,3 +44,37 @@ class Directory(FileSystemComponent):
         for child in self.children:
             total += child.getSize()
         return total
+
+
+
+if __name__ == "__main__":
+    # Create files
+    file1 = File("resume.pdf", 120)
+    file2 = File("photo.jpg", 450)
+    file3 = File("song.mp3", 5000)
+    file4 = File("notes.txt", 30)
+
+    # Create directories
+    documents = Directory("Documents")
+    pictures = Directory("Pictures")
+    music = Directory("Music")
+    root = Directory("Root")
+
+    # Build tree
+    documents.add(file1)
+    documents.add(file4)
+
+    pictures.add(file2)
+    music.add(file3)
+
+    root.add(documents)
+    root.add(pictures)
+    root.add(music)
+    root.add(File('Chintan', 100))
+
+    # Show structure
+    print("📂 File System Structure:")
+    root.showDetails()
+
+    # Show total size
+    print("\n📊 Total Size:", root.getSize(), "KB")

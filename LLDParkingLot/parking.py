@@ -3,6 +3,8 @@ Parking lot LLD implementation inspired by:
 'Low-Level Design Interview Question: Parking System' (Mehar Chand). See source linked in chat.
 """
 
+# https://medium.com/@mehar.chand.cloud/low-level-design-interview-question-parking-system-a041bd1973d2
+
 from enum import Enum
 from datetime import datetime, timedelta
 import uuid

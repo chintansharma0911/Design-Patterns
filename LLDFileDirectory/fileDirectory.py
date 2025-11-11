@@ -46,7 +46,6 @@ class Directory(FileSystemComponent):
         return total
 
 
-from composite.fileStorage import File, Directory
 if __name__ == "__main__":
     # Create files
     file1 = File("resume.pdf", 120)

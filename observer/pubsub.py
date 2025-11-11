@@ -31,3 +31,20 @@ class ChatMember(Participant):
     def receive(self, message):
         """Receives and displays the message."""
         print(f"{self.name} received: {message}")
+
+if __name__ == "__main__":
+    # Create a chat room
+    general_chat = ChatRoom()
+
+    # Create participants
+    user1 = ChatMember("User1")
+    user2 = ChatMember("User2")
+    user3 = ChatMember("User3")
+
+    # Participants join the chat room
+    general_chat.join(user1)
+    general_chat.join(user2)
+    general_chat.join(user3)
+
+    # Send a message to the chat room
+    general_chat.broadcast("Hi!")

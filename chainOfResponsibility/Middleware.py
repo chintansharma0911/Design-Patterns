@@ -41,3 +41,35 @@ class DataValidationMiddleware(Middleware):
 
     def validate_data(self, request):
         return True
+
+
+
+class Chain:
+    def __init__(self):
+        self.middlewares = []
+
+    def add_middleware(self, middleware):
+        self.middlewares.append(middleware)
+
+    def handle_request(self, request):
+        for middleware in self.middlewares:
+            request = middleware.handle_request(request)
+            if request is None:
+                print("Request processing stopped.")
+                break
+
+if __name__ == "__main__":
+    # Create middleware instances.
+    auth_middleware = AuthenticationMiddleware()
+    logging_middleware = LoggingMiddleware()
+    data_validation_middleware = DataValidationMiddleware()
+
+    # Create the chain and add middleware.
+    chain = Chain()
+    chain.add_middleware(auth_middleware)
+    chain.add_middleware(logging_middleware)
+    chain.add_middleware(data_validation_middleware)
+
+    # Simulate an HTTP request.
+    http_request = {"user": "username", "data": "valid_data"}
+    chain.handle_request(http_request)

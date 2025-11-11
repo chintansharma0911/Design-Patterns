@@ -18,6 +18,7 @@ class Decaf(Coffee):
     def get_cost(self):
         return 10
 
+
 class Espresso(Coffee):
     def get_desc(self):
         return 'Espresso '
@@ -57,3 +58,17 @@ class Caramel(CoffeeDecorator):
 
     def get_cost(self):
         return self.coffee.get_cost() + 60
+
+
+if __name__ == '__main__':
+    order = Espresso()
+    print(order.get_desc())
+    print(order.get_cost())
+
+    order = WhippedMilk(order)
+    print(order.get_desc())
+    print(order.get_cost())
+
+    order = Caramel(order)
+    print(order.get_desc())
+    print(order.get_cost())

@@ -37,3 +37,17 @@ class LoggingHandler(RequestHandler):
             return
         print("Logging request")
         super().handle_request(request)
+
+
+
+if __name__ == "__main__":
+    request = Request({"token": "abc123", "data": "some_data"})
+
+    logging_handler = LoggingHandler(DataValidationHandler(AuthenticationHandler()))
+
+    logging_handler.handle_request(request)
+
+    if request.valid:
+        print("Request processing successful")
+    else:
+        print("Request processing failed")
