@@ -31,3 +31,27 @@ class TradingContext:
 
     def execute_trade(self, data):
         return self._strategy.execute_trade(data)
+
+
+
+if __name__ == "__main__":
+    # Sample data for trading
+    trading_data = [50, 55, 45, 60, 50]
+
+    # Create concrete strategy objects
+    moving_average_strategy = MovingAverageStrategy()
+    mean_reversion_strategy = MeanReversionStrategy()
+
+    # Create context with a default strategy
+    trading_context = TradingContext(moving_average_strategy)
+
+    # Execute the default strategy
+    result = trading_context.execute_trade(trading_data)
+    print(result)  # Output: Executing Moving Average Trading Strategy. Moving Average: 51.67
+
+    # Switch to a different strategy at runtime
+    trading_context.set_strategy(mean_reversion_strategy)
+
+    # Execute the updated strategy
+    result = trading_context.execute_trade(trading_data)
+    print(result)  # Output: Executing Mean Reversion Trading Strategy. Deviation from Mean: -1.00

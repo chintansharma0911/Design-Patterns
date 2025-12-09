@@ -14,24 +14,6 @@ class AdvanceFileStorage(FileStorage):
     def saveFile(self):
         self._implementation.save()
 
-
-
-
-# Bridge
-# from bridge.fileStorage import AdvanceFileStorage, CloudStorage, Networktorage
-#
-# cloud = CloudStorage()
-# network = Networktorage()
-# advanceStorage1 = AdvanceFileStorage(cloud)
-# advanceStorage2 = AdvanceFileStorage(network)
-# advanceStorage1.saveFile()
-# advanceStorage2.saveFile()
-
-
-
-
-
-
 class StorageImplementation(ABC):
     @abstractmethod
     def save(self):
@@ -51,3 +33,14 @@ class CloudStorage(StorageImplementation):
 class Networktorage(StorageImplementation):
     def save(self):
         print('Saved to network')
+
+
+# Bridge
+# from bridge.fileStorage import AdvanceFileStorage, CloudStorage, Networktorage
+#
+# cloud = CloudStorage()
+# network = Networktorage()
+# advanceStorage1 = AdvanceFileStorage(cloud)
+# advanceStorage2 = AdvanceFileStorage(network)
+# advanceStorage1.saveFile()
+# advanceStorage2.saveFile()

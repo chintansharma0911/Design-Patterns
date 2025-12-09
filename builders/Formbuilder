@@ -45,6 +45,5 @@ class FormBuilder(Builder):
 
 if __name__ == "__main__":
     form = FormBuilder()
-    form.add_email_field('dsdsdsd')
-    form.add_subscriber_field('adadada')
+    form.add_email_field('dsdsdsd').add_subscriber_field('adadada')
     form.build()
